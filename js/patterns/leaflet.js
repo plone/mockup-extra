@@ -4,7 +4,7 @@ define([
 ], function(L, Base) {
   "use strict";
 
-  L.Icon.Default.imagePath = "../lib/leaflet/images";
+  L.Icon.Default.imagePath = "lib/leaflet/images";
 
   var leafletPattern = Base.extend({
     name: "leaflet",
