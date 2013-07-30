@@ -1,0 +1,34 @@
+{
+  "name": "collectivemockup",
+  "version": "0.0.1",
+  "description": "non-plone-core patterns",
+  "homepage": "",
+  "devDependencies": {
+    "bower": "~0.10.0",
+    "grunt-cli": "~0.1.9",
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-requirejs": "~0.4.1",
+    "grunt-contrib-less": "~0.6.4",
+    "grunt-contrib-cssmin": "~0.4.1",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-karma": "~0.4.5",
+    "almond": "0.2.5"
+  },
+  "maintainers": [
+    {
+      "name": "Eric BREHAULT",
+      "email": "ebrehault@gmail.com",
+      "url": ""
+    }
+  ],
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/collective/collective.mockup"
+  },
+  "licenses": [
+    {
+      "type": "GPLv2",
+      "url": "http://opensource.org/licenses/GPL-2.0"
+    }
+  ]
+}

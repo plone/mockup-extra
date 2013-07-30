@@ -1,0 +1,8 @@
+{
+  "name": "collectivemockup",
+  "version": "0.0.1",
+  "description": "non-plone-core patterns",
+  "dependencies": {
+    "plone-mockup": "https://github.com/plone/mockup.git"
+  }
+}

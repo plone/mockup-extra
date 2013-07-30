@@ -1,0 +1,24 @@
+@import "../bower_components/bootstrap/less/variables.less"; // Modify this for custom colors, font-sizes, etc
+@import "../bower_components/bootstrap/less/mixins.less";
+@import "../bower_components/bootstrap/less/modals.less";
+@import "../bower_components/bootstrap/less/progress-bars.less";
+
+.modal-loading {
+  .progress .bar();
+  .progress.active .bar();
+  .progress-striped .bar();
+  .border-radius(0.5em);
+  width: 40em;
+  height: 40px;
+}
+
+.modal {
+    z-index: 1040;
+    .modal-header {
+        min-height: 25px;
+    }
+}
+
+.backdrop {
+    z-index: 1030;
+}

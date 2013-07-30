@@ -1,0 +1,141 @@
+@import "../bower_components/bootstrap/less/mixins.less";
+@import "../bower_components/font-awesome/less/mixins.less";
+@import "pattern.select2.less";
+
+.pat-relateditems-dropdown {
+  z-index: 10001;
+
+  .select2-results {
+    .select2-highlighted {
+      color: #000;
+      background: #d8d8d8;
+    }
+  }
+}
+.pat-relateditems {
+
+}
+
+.pat-relateditems-container {
+  display: inline-block;
+  position: relative;
+  padding-top: 20px;
+
+  .pat-relateditems-tabs {
+
+    z-index: 10002;
+    position: relative;
+
+    .pat-relateditems-tab {
+      padding-top: 6px;
+      padding-right: 12px;
+      padding-bottom: 6px;
+      padding-left: 12px;
+      line-height: 18px;
+      border: 1px solid transparent;
+      border-bottom-style: none;
+      .border-top-radius(4px);
+      display: inline-block;
+      background-color: transparent;
+      margin-bottom: -1px;
+
+      &:hover {
+        border-color: #aaa;
+      }
+
+      &.pat-active {
+        color: #555555;
+        border-color: #aaa;
+        background-color: #f1f1f1;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+    }
+
+  }
+}
+.pat-relateditems-path {
+  display: block;
+  height: 20px;
+  line-height: 20px;
+  background-color: #f1f1f1;
+  font-size: 12px;
+  border: 1px solid #aaa;
+  border-bottom-style: none;
+  z-index: 9999;
+  position: relative;
+
+  a {
+    padding: 0 6px;
+  }
+}
+.pat-relateditems-result {
+  padding-right: 30px;
+  position: relative;
+
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .pat-relateditems-result-select {
+    display: block;
+    padding-left: 20px;
+
+    &:after {
+      .icon(@circle-blank);
+      position: absolute;
+      left: 0;
+      font-size: 14px;
+      right: 0;
+      top: 50%;
+      margin-top: -14px;
+
+      color: @linkColor;
+    }
+
+    &.pat-active {
+      &:after {
+        .icon(@circle);
+      }
+    }
+
+  }
+
+  .pat-relateditems-buttons {
+    position: absolute;
+    display: inline-block;
+    text-align: right;
+    font-size: 18px;
+    right: 0;
+    top: 50%;
+    margin-top: -16px;
+    a {
+      display: block;
+      height: 36px;
+      line-height: 36px;
+      &:after {
+        .icon(@chevron-right);
+      }
+    }
+  }
+
+  .pat-relateditems-result-path {
+    display: block;
+    color: #444;
+    font-size: 11px;
+  }
+}
+
+.pat-relateditems-item {
+  .pat-relateditems-item-path {
+    font-size: 11px;
+    color: #444;
+    display: block;
+  }
+}
+

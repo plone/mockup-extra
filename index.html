@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collective Plone Mockup</title>
+
+  <style type="text/less">@import "less/docs.less";@isBrowser: true;</style>
+
+  <script src="node_modules/grunt-contrib-less/node_modules/less/dist/less-1.4.1.js"></script>
+  <script src="bower_components/jquery/jquery.js"></script>
+  <script src="bower_components/underscore/underscore.js"></script>
+  <script src="bower_components/requirejs/require.js"></script>
+  <script src="config.js"></script>
+  <script>
+
+// helper utilities
+var pages = [];
+var patterns = [];
+addPattern = function(page) {
+  patterns.push(page);
+};
+addPage = function(page) {
+  pages.push(page);
+};
+
+//
+require([
+  'mockup-fakeserver',
+  'mockup-docsapp'
+], function(server, DocsApp) {
+
+  DocsApp.patterns.add(patterns);
+  DocsApp.pages.add(pages);
+  DocsApp.initialize();
+});
+
+
+  </script>
+
+  <!-- TEMPLATES -->
+  <script type="text/template" id="tpl_page">
+    <div class="page-header">
+      <h1><%= title %> <small><%= description %></small></h1>
+    </div>
+    <div><%= content %></div>
+  </script>
+
+  <script type="text/template" id="tpl_pattern">
+    <ul class="breadcrumb">
+      <li><a href="#">Home</a> <span class="divider">/</span></li>
+      <li><a href="#patterns">Patterns</a> <span class="divider">/</span></li>
+      <li class="active"><%= title %></li>
+    </ul>
+    <div class="page-header">
+      <h1><%= title %> <small><%= description %></small></h1>
+    </div>
+    <div><%= content %></div>
+    <div class="docs-examples">
+      <h2>Examples</h2>
+      <%= examples %>
+    </div>
+
+    <% if (attributes.length > 0) { %>
+      <div class="docs-attributes" id="data-options">
+        <h2>Data Options</h2>
+      </div>
+    <% } %>
+  </script>
+
+  <script type="text/template" id="tpl_attribute">
+    <% if (type === 'Object' && attrs !== '') { %>
+      <td colspan="4" class="docs-attrs">
+        <%= attribute %> {
+          <% if (description !== '') { %> <p><%= description %></p> <% } %>
+          <%= attrs %>
+        }
+      </td>
+    <% } else { %>
+      <td class="attr-name"><%= attribute %></td>
+      <td class="attr-type"><%= type %></td>
+      <td class="attr-default"><%= defaultValue %></td>
+      <td  class="attr-description"><%= description %></td>
+    <% } %>
+  </script>
+
+  <script type="text/template" id="tpl_attributes">
+    <thead>
+      <tr>
+        <th>Option</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </script>
+
+  <script type="text/template" id="tpl_example">
+    <% if (title !== '') { %>
+      <h3><%= title %></h3>
+    <% } %>
+    <div>
+      <%= html %>
+    </div>
+    <div>
+      <pre class="brush: html;toolbar: false;"><%= pre %></pre>
+    </div>
+  </script>
+
+  <script type="text/template" id="tpl_patterns_list">
+    <div class="page-header">
+      <h1>Patterns <small>The complete list</small></h1>
+    </div>
+  </script>
+  <script type="text/template" id="tpl_patterns_list_item">
+    <div class="media-body">
+      <h4><a href="#patterns/<%= id %>" title="<%= title %>"><%= title %></a></h4>
+      <%= description %>
+    </div>
+  </script>
+
+  <!--  ** DOCS CONTENT ** -->
+
+  <!-- * Reused * -->
+  <script>
+  var backdropAttributes = [
+    {attribute: 'zIndex', type: 'String', defaultValue: '"1040"', description: 'Value for z-index to be applied to backdrop.'},
+    {attribute: 'opacity', type: 'String', defaultValue: '"0.8"', description: 'This property allows you to control the transparency or opacity of the backdrop.'},
+    {attribute: 'klass', type: 'String', defaultValue: '"backdrop"', description: 'Set the CSS class applied to the backdrop. Useful if you want to apply your own styling to the backdrop.'},
+    {attribute: 'klassActive', type: 'String', defaultValue: '"backdrop-active"', description: 'Set the CSS class which is applied when the backdrop is made active.'},
+    {attribute: 'closeOnEsc', type: 'Boolean', defaultValue: 'true', description: 'Whether or not to close the backdrop (and modal) when the "Escape" key is pressed.'},
+    {attribute: 'closeOnClick', type: 'Boolean', defaultValue: 'true', description: 'Whether or not to close the backdrop (and modal) when the backdrop is clicked.'},
+  ];
+  </script>
+
+  <script>
+    addPage({
+      id: 'about',
+      title: 'About collective.mockup',
+      requiredPatterns: ['autotoc']
+    });
+  </script>
+  <script type='text/template' id='page_about'>
+    <style type='text/css'>
+      .autotoc-nav {
+        width: 100%;
+        float: none;
+      }
+      .about h2 {
+        font-size: 1.5em;
+      }
+    </style>
+
+    <div class='about pat-autotoc' data-pat-autotoc="levels:h2">
+      <div>
+        <h2>What's the purpose of this project?</h2>
+        <p>
+          The <em>collective.mockup</em> project uses the <a href="http://plone.github.io/">Mockup</a>
+          approach to package Javascript code for Plone. While Mockup proposes the Plone core patterns,
+          <em>collective.mockup</em> aims to manage the non-Plone core ones.
+        </p>
+        <h2>Installation</h2>
+        <p>
+          <pre>
+Install Git
+Install Node/NPM
+$ git clone git://github.com/collective/collective.mockup.git
+$ cd collective.mockup
+$ make bootstrap</pre>
+        </p>
+        <h2>Tests</h2>
+        <p>
+          <pre>
+$ make test</pre>
+        </p>
+      </div>
+    </div>
+  </script>
+
+
+  <!--  ** Patterns  ** -->
+
+    <!--  **** Leaflet **** -->
+  <script>
+    addPattern({
+      id: 'leaflet',
+      title: 'Display a map',
+      description: 'Display markers (or more complex geometries) on a map.',
+      attributes: [
+        {attribute: 'marker', type: 'Coordinates', defaultValue: '', description: 'Allows to display a marker at the given coordinates.'},
+        {attribute: 'address', type: 'String', defaultValue: '', description: 'Allows to display a marker at the given address (attribute "search" is needed).'},
+        {attribute: 'search', type: 'String', defaultValue: '', description: 'Google/Bing/OpenStreetMap, defines the geocoding service to resolve addresses, and displays an address search field.'},
+        {attribute: 'center', type: 'Coordinates', defaultValue: '', description: 'Defines the center of the map.'},
+        {attribute: 'zoom', type: 'Integer', defaultValue: '', description: 'Defines the map zoom level.'},
+        {attribute: 'maxzoom', type: 'Integer', defaultValue: '18', description: 'Defines the map maximum zoom level.'},
+        {attribute: 'minzoom', type: 'Integer', defaultValue: '', description: 'Defines the map minimum zoom level.'},
+        {attribute: 'tilesurl', type: 'Url pattern', defaultValue: 'http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpeg', description: 'Tiles layer source.'},
+        {attribute: 'attribution', type: 'String', defaultValue: '', description: 'Tiles layer attribution.'},
+        {attribute: 'subdomains', type: 'String', defaultValue: 'abcd', description: 'Tiles sub-domains.'},
+        {attribute: 'geojson', type: 'GeoJSON string', defaultValue: '', description: 'Collection of geometries to display on the map.'},
+      ]
+    });
+  </script>
+  <script type="text/template" id="page_leaflet">
+
+  </script>
+  <script type="text/example" class="example-leaflet" data-title="Our office">
+    <div class="pat-leaflet" data-pat-leaflet="
+      marker: [43.57484912685576, 1.4064323902130127];
+    "/>
+  </script>
+  <script type="text/example" class="example-leaflet" data-title="Our office by address">
+    <div class="pat-leaflet" data-pat-leaflet="
+      address: 36 rue babinet, toulouse;
+      search: Google;
+    "/>
+  </script>
+  <script type="text/example" class="example-leaflet" data-title="Kuching, Sarawak">
+    <div class="pat-leaflet" style="height: 500px;" data-pat-leaflet="
+      zoom:8;
+      center: [1.33, 110.20];
+      maxzoom: 12;
+      minzoom: 4;
+    " />
+  </script>
+  <script type="text/example" class="example-leaflet" data-title="Kuching, Sarawak, with another tiles style, and a polygon">
+    <div class="pat-leaflet" style="height: 500px;" data-pat-leaflet='
+      zoom:8;
+      center: [1.33, 110.20];
+      tilesurl: http://tile.stamen.com/watercolor/{z}/{x}/{y}.jpg;
+      attribution: Stamen;
+      geojson: {"type": "FeatureCollection","features": [{"type": "Feature","properties": {},"geometry": {"type": "Polygon","coordinates": [[[109.88250732421875,1.7355743631421197],[110.20111083984375,1.8865608717161173],[110.8026123046875,1.7163570116311022],[110.8795166015625,1.5571202993274371],[110.83831787109375,1.392380020302357],[110.577392578125,1.3100054779424755],[110.00335693359375,1.3813969105879216],[109.86602783203125,1.5735936415541505],[109.88250732421875,1.7355743631421197]]]}}]}
+    ' />
+  </script>
+
+</head>
+
+<body>
+
+  <header>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="#">
+            <span class="plone-logo">
+              <span class="plone-logo-circle">
+                <span class="plone-circle-inner">
+                  <span class="plone-dot-1"></span>
+                  <span class="plone-dot-2"></span>
+                  <span class="plone-dot-3"></span>
+                </span>
+              </span>
+            </span>
+            Mockup
+          </a>
+          <ul class="nav">
+            <li><a href="#about">About</a></li>
+            <li><a href="#patterns">Patterns</a></li>
+          </ul>
+          <img class="pull-right" src="https://api.travis-ci.org/collective/collective.mockup.png?branch=master" alt="Build Status" />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div id="content" data-panel="content">
+
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>Plone<sup>&reg;</sup> and the Plone logo are registered trademarks of
+        the Plone Foundation. You’re looking good today.</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
