@@ -56,11 +56,19 @@ define([
       if(self.options.marker) {
         L.marker(JSON.parse(self.options.marker)).addTo(layers);
       }
-      if(self.options.geojson) {
-        L.geoJson(JSON.parse(self.options.geojson)).addTo(map);
+      var json_source = map_div.dataset['geojson-src'];
+      if(json_source) {
+        $.getJSON(json_source, null, function(data) {
+          L.geoJson(data).addTo(layers);
+          self.fitBounds(map, layers.getBounds());
+        });
+      } else {
+        if(self.options.geojson) {
+          L.geoJson(JSON.parse(self.options.geojson)).addTo(map);
+        }
       }
-      var bounds = layers.getBounds();
-      if (bounds.isValid()) map.fitBounds(bounds);
+      self.fitBounds(map, layers.getBounds());
+      
 
       // search
       if(self.options.search) {
@@ -76,6 +84,10 @@ define([
           };
         }
       }
+    },
+
+    fitBounds: function(map, bounds) {
+      if (bounds.isValid()) map.fitBounds(bounds);
     }
   });
 
