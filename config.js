@@ -51,9 +51,14 @@ var requirejsOptions = {
     'mockup-bundles-toolbar': 'bower_components/plone-mockup/js/bundles/toolbar',
     'mockup-bundles-tiles': 'bower_components/plone-mockup/js/bundles/widgets',
     
-    'leaflet': 'lib/leaflet/leaflet',
     'collectivemockup-bundles-widgets': 'js/bundles/widgets',
-    'mockup-patterns-leaflet': 'js/patterns/leaflet'
+    
+    'leaflet': 'lib/leaflet/leaflet',
+    'mockup-patterns-leaflet': 'js/patterns/leaflet',
+    'd3': 'lib/d3/d3.v3.min',
+    'topojson': 'lib/d3/topojson',
+    'vega': 'lib/vega/vega',
+    'mockup-patterns-vega': 'js/patterns/vega',
   },
   shim: {
     'underscore': { exports: 'window._' },
