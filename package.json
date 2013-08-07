@@ -1,20 +1,22 @@
 {
-  "name": "collectivemockup",
-  "version": "0.0.1",
-  "description": "non-plone-core patterns",
-  "homepage": "",
+  "name": "mockup-extra",
+  "version": "1.4.0",
+  "description": "Patterns not shipped with Plone core",
+  "homepage": "http://plone.github.io/mockup-extra",
   "devDependencies": {
     "bower": "~0.10.0",
     "grunt-cli": "~0.1.9",
     "grunt-contrib-jshint": "~0.6.0",
-    "grunt-contrib-requirejs": "~0.4.1",
     "grunt-contrib-less": "~0.6.4",
-    "grunt-contrib-cssmin": "~0.4.1",
-    "grunt-contrib-uglify": "~0.2.2",
     "grunt-karma": "~0.4.5",
     "almond": "0.2.5"
   },
   "maintainers": [
+    {
+      "name": "Rok Garbas",
+      "email": "rok@garbas.si",
+      "url": "http://garbas.si"
+    },
     {
       "name": "Eric BREHAULT",
       "email": "ebrehault@gmail.com",
@@ -23,12 +25,12 @@
   ],
   "repository" : {
     "type" : "git",
-    "url" : "https://github.com/collective/collective.mockup"
+    "url" : "https://github.com/plone/mockup-extra"
   },
   "licenses": [
     {
-      "type": "GPLv2",
-      "url": "http://opensource.org/licenses/GPL-2.0"
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/mit-license.php"
     }
   ]
 }

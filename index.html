@@ -10,13 +10,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Collective Plone Mockup</title>
 
-  <style type="text/less">@import "less/docs.less";@isBrowser: true;</style>
+  <style type="text/less">@import "bower_components/plone-mockup/less/docs.less";@isBrowser: true;</style>
 
   <script src="node_modules/grunt-contrib-less/node_modules/less/dist/less-1.4.1.js"></script>
   <script src="bower_components/jquery/jquery.js"></script>
   <script src="bower_components/underscore/underscore.js"></script>
   <script src="bower_components/requirejs/require.js"></script>
-  <script src="config.js"></script>
+  <script src="js/config.js"></script>
   <script>
 
 // helper utilities
@@ -126,68 +126,9 @@ require([
     </div>
   </script>
 
-  <!--  ** DOCS CONTENT ** -->
-
-  <!-- * Reused * -->
-  <script>
-  var backdropAttributes = [
-    {attribute: 'zIndex', type: 'String', defaultValue: '"1040"', description: 'Value for z-index to be applied to backdrop.'},
-    {attribute: 'opacity', type: 'String', defaultValue: '"0.8"', description: 'This property allows you to control the transparency or opacity of the backdrop.'},
-    {attribute: 'klass', type: 'String', defaultValue: '"backdrop"', description: 'Set the CSS class applied to the backdrop. Useful if you want to apply your own styling to the backdrop.'},
-    {attribute: 'klassActive', type: 'String', defaultValue: '"backdrop-active"', description: 'Set the CSS class which is applied when the backdrop is made active.'},
-    {attribute: 'closeOnEsc', type: 'Boolean', defaultValue: 'true', description: 'Whether or not to close the backdrop (and modal) when the "Escape" key is pressed.'},
-    {attribute: 'closeOnClick', type: 'Boolean', defaultValue: 'true', description: 'Whether or not to close the backdrop (and modal) when the backdrop is clicked.'},
-  ];
-  </script>
-
-  <script>
-    addPage({
-      id: 'about',
-      title: 'About collective.mockup',
-      requiredPatterns: ['autotoc']
-    });
-  </script>
-  <script type='text/template' id='page_about'>
-    <style type='text/css'>
-      .autotoc-nav {
-        width: 100%;
-        float: none;
-      }
-      .about h2 {
-        font-size: 1.5em;
-      }
-    </style>
-
-    <div class='about pat-autotoc' data-pat-autotoc="levels:h2">
-      <div>
-        <h2>What's the purpose of this project?</h2>
-        <p>
-          The <em>collective.mockup</em> project uses the <a href="http://plone.github.io/">Mockup</a>
-          approach to package Javascript code for Plone. While Mockup proposes the Plone core patterns,
-          <em>collective.mockup</em> aims to manage the non-Plone core ones.
-        </p>
-        <h2>Installation</h2>
-        <p>
-          <pre>
-Install Git
-Install Node/NPM
-$ git clone git://github.com/collective/collective.mockup.git
-$ cd collective.mockup
-$ make bootstrap</pre>
-        </p>
-        <h2>Tests</h2>
-        <p>
-          <pre>
-$ make test</pre>
-        </p>
-      </div>
-    </div>
-  </script>
-
-
   <!--  ** Patterns  ** -->
 
-    <!--  **** Leaflet **** -->
+  <!--  **** Leaflet **** -->
   <script>
     addPattern({
       id: 'leaflet',
@@ -283,13 +224,13 @@ $ make test</pre>
                 </span>
               </span>
             </span>
-            Mockup
+            Mockup Extra
           </a>
           <ul class="nav">
             <li><a href="#about">About</a></li>
             <li><a href="#patterns">Patterns</a></li>
           </ul>
-          <img class="pull-right" src="https://api.travis-ci.org/collective/collective.mockup.png?branch=master" alt="Build Status" />
+          <img class="pull-right" src="https://api.travis-ci.org/plone/mockup-extra.png?branch=master" alt="Build Status" />
         </div>
       </div>
     </div>

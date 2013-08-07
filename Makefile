@@ -14,9 +14,10 @@ all: jshint test-ci
 
 bootstrap:
 	mkdir -p build
-	if test ! -d docs; then $(GIT) clone git://github.com/collective/collective.mockup.git -b gh-pages docs; fi
+	if test ! -d docs; then $(GIT) clone git://github.com/plone/mockup-extra.git -b gh-pages docs; fi
 	$(NPM) link --prefix=./node_modules
 	$(BOWER) install
+	cd bower_components/plone-mockup/ && make bootstrap
 
 jshint:
 	$(GRUNT) jshint
@@ -26,3 +27,13 @@ test: jshint
 
 test-ci: jshint
 	CHROME_BIN=$(BOWER_CHROME) $(GRUNT) karma:ci --force
+
+clean:
+	mkdir -p build
+	rm -rf build
+	rm -rf node_modules
+	rm -rf bower_components
+
+	if test -f $(BOWER); then $(BOWER) cache-clean; fi
+
+.PHONY: bootstrap jshint test test-ci clean

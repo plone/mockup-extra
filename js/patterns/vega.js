@@ -12,7 +12,7 @@ define([
     init: function() {
       var self = this;
       self.container = self.$el[0];
-      var json_source = self.container.dataset['src'];
+      var json_source = self.container.dataset.src;
       if(json_source) {
         $.getJSON(json_source, null, function(data) {
           self.render(data);

@@ -1,9 +1,0 @@
-*.py?
-/build/
-/jam/
-/coverage/
-/node_modules/
-/docs/
-/plone/mockup.egg-info/
-/bower_components/
-/test-results.xml

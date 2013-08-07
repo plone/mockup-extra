@@ -16,12 +16,10 @@ files = [
   REQUIRE,
   REQUIRE_ADAPTER,
 
-  'config.js',
+  'js/config.js',
   {pattern: 'lib/**/*.js', included: false},
   {pattern: 'bower_components/**/*.js', included: false},
   {pattern: 'js/**/*.js', included: false},
-  {pattern: 'tests/example-resource*', included: false},
-  {pattern: 'tests/fakeserver*', included: false},
   {pattern: 'tests/**/*-test.js', included: false},
 
   'tests/config.js'
