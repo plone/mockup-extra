@@ -1,10 +1,11 @@
 define([
   'leaflet',
+  'leaflet-geosearch',
   'mockup-patterns-base'
-], function(L, Base) {
+], function(L, lg, Base) {
   "use strict";
 
-  L.Icon.Default.imagePath = "lib/leaflet/images";
+  L.Icon.Default.imagePath = "bower_components/leaflet-dist/images";
 
   var leafletPattern = Base.extend({
     name: "leaflet",

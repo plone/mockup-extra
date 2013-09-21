@@ -1,13 +1,13 @@
 @import "../bower_components/plone-mockup/less/mixins.less";
 
 .importCSS() when not (@isBrowser) {
-  @import (less) "../lib/leaflet/leaflet.css";
-  @import (less) "../lib/leaflet/leaflet.ie.css";
-  @import (less) "../lib/leaflet/l.geosearch.css";
+  @import (less) "../bower_components/leaflet-dist/leaflet.css";
+  @import (less) "../bower_components/leaflet-dist/leaflet.ie.css";
+  @import (less) "../lib/leaflet-geosearch/l.geosearch.css";
 }
 .importCSS() when (@isBrowser) {
-  @import (css) "@{pathPrefix}../lib/leaflet/leaflet.css";
-  @import (css) "@{pathPrefix}../lib/leaflet/leaflet.ie.css";
-  @import (css) "@{pathPrefix}../lib/leaflet/l.geosearch.css";
+  @import (less) "@{pathPrefix}../bower_components/leaflet-dist/leaflet.css";
+  @import (less) "@{pathPrefix}../bower_components/leaflet-dist/leaflet.ie.css";
+  @import (less) "@{pathPrefix}../lib/leaflet-geosearch/l.geosearch.css";
 }
 .importCSS();

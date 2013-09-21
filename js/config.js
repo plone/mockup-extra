@@ -9,7 +9,8 @@ var requirejsOptions = {
     'backbone': 'bower_components/backbone/backbone',
     'sinon': 'bower_components/plone-mockup/lib/sinon',
 
-    'leaflet': 'bower_components/leaflet/dist/leaflet',
+    'leaflet': 'bower_components/leaflet-dist/leaflet',
+    'leaflet-geosearch': 'lib/leaflet-geosearch/leaflet-geosearch',
     'vega': 'bower_components/vega/vega',
     'd3': 'bower_components/d3/d3',
 
