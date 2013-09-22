@@ -7,7 +7,7 @@ BOWER = ./node_modules/.bin/bower
 UNAME := $(shell uname)
 BOWER_CHROME=`which chrome`
 ifeq ($(UNAME), Linux)
-	BOWER_CHROME=`which chromium`
+	BOWER_CHROME=`which chromium-browser`
 endif
 
 all: jshint test-ci
