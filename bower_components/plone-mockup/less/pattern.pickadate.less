@@ -1,0 +1,50 @@
+@import "../bower_components/pickadate/_raw/lib/themes/base.less";
+@import "../bower_components/pickadate/_raw/lib/themes/base.date.less";
+@import "../bower_components/pickadate/_raw/lib/themes/base.time.less";
+@import "../bower_components/pickadate/_raw/lib/themes/classic.less";
+@import "../bower_components/pickadate/_raw/lib/themes/classic.date.less";
+@import "../bower_components/pickadate/_raw/lib/themes/classic.time.less";
+
+.pat-pickadate-wrapper {
+  position: relative;
+  margin-bottom: 0.5em;
+  .pat-pickadate-date-wrapper {
+    float: left;
+    .picker__input {
+      width: 300px;
+      margin-bottom: 0.2em;
+      text-align: center;
+      cursor: context-menu;
+    }
+    .picker__holder {
+      width: 300px;
+      font-size: 12px;
+      margin: 0 0.5em;
+    }
+  }
+  .pat-pickadate-separator {
+    float: left;
+    display: block;
+    margin: 0 0.2em;
+  }
+  .pat-pickadate-time-wrapper {
+    float: left;
+    .picker__input {
+      width: 180px;
+      margin-bottom: 0.2em;
+      text-align: center;
+      cursor: context-menu;
+    }
+    .picker__holder {
+      width: 180px;
+      font-size: 11px;
+      margin: 0 0.5em;
+    }
+    .picker__list-item {
+      text-align: center;
+    }
+  }
+  .pat-pickadate-clear {
+    clear: both;
+  }
+}
