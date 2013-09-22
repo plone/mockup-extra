@@ -18,7 +18,7 @@ files = [
 
   'js/config.js',
   {pattern: 'lib/**/*.js', included: false},
-  {pattern: 'bower_components/**/*.js', included: false},
+  {pattern: 'bower_components/**/*.*', included: false},
   {pattern: 'js/**/*.js', included: false},
   {pattern: 'tests/**/*-test.js', included: false},
 

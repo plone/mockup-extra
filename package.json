@@ -4,7 +4,6 @@
   "description": "Patterns not shipped with Plone core",
   "homepage": "http://plone.github.io/mockup-extra",
   "devDependencies": {
-    "almond": "~0.2.6",
     "bower": "~0.10.0",
     "grunt-cli": "~0.1.9",
     "grunt-contrib-cssmin": "~0.6.1",
@@ -12,6 +11,8 @@
     "grunt-contrib-less": "~0.7.0",
     "grunt-contrib-requirejs": "~0.4.1",
     "grunt-contrib-uglify": "~0.2.4",
+    "grunt-karma": "~0.4.6",
+    "grunt-sed": "~0.1.1",
     "almond": "0.2.5"
   },
   "maintainers": [
