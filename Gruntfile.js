@@ -38,7 +38,7 @@ module.exports = function(grunt) {
         }
         // TODO: SauceLabs stuff comes here
       }
-    }
+    },
 
     // TODO: minimize javascript if needed
     //uglify: {
@@ -53,18 +53,18 @@ module.exports = function(grunt) {
     //},
 
     // TODO: create bundle for specific python packages that uses them
-    //requirejs: {
-    //  options: requirejsOptions,
-    //  widgets: {
-    //    options: {
-    //      name: 'node_modules/almond/almond.js',
-    //      include: 'mockupextra-bundles-widgets',
-    //      insertRequire: ['collectivemockup-bundles-widgets'],
-    //      out: 'build/widgets.min.js',
-    //      excludeShallow: ['jquery']
-    //    }
-    //  }
-    //},
+    requirejs: {
+     options: requirejsOptions,
+     extra: {
+       options: {
+         name: 'node_modules/almond/almond.js',
+         include: 'mockup-bundles-extra',
+         insertRequire: ['mockup-bundles-extra'],
+         out: 'build/extra.min.js',
+         excludeShallow: ['jquery']
+       }
+     }
+    },
 
     // TODO: include less styles if needed
     //less: {
@@ -125,11 +125,17 @@ module.exports = function(grunt) {
   });
 
   //grunt.loadNpmTasks('grunt-contrib-less');
-  //grunt.loadNpmTasks('grunt-contrib-requirejs');
+  grunt.loadNpmTasks('grunt-contrib-requirejs');
   //grunt.loadNpmTasks('grunt-contrib-cssmin');
   //grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-karma');
+
+  grunt.registerTask('compile-extra', [
+      'requirejs:extra'
+      // 'less:extra',
+      // 'cssmin:extra'
+      ]);
 
   grunt.registerTask('default', ['jshint', 'karma:dev' ]);
 

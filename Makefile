@@ -19,6 +19,10 @@ bootstrap:
 	$(BOWER) install
 	cd bower_components/plone-mockup/ && make bootstrap
 
+compile:
+	mkdir -p build
+	$(GRUNT) compile-extra
+
 jshint:
 	$(GRUNT) jshint
 

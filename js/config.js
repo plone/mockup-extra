@@ -7,7 +7,6 @@ var requirejsOptions = {
     'jquery': 'bower_components/jquery/jquery',
     'underscore': 'bower_components/underscore/underscore',
     'backbone': 'bower_components/backbone/backbone',
-    'sinon': 'bower_components/plone-mockup/lib/sinon',
 
     'leaflet': 'bower_components/leaflet-dist/leaflet',
     'leaflet-geosearch': 'lib/leaflet-geosearch/leaflet-geosearch',
@@ -17,18 +16,18 @@ var requirejsOptions = {
     'mockup-registry': 'bower_components/plone-mockup/js/registry',
     'mockup-patterns-base': 'bower_components/plone-mockup/js/patterns/base',
     'mockup-docsapp': 'bower_components/plone-mockup/js/docsapp',
-    'mockup-fakeserver': 'bower_components/plone-mockup/tests/fakeserver',
 
     'mockup-patterns-leaflet': 'js/patterns/leaflet',
-    'mockup-patterns-vega': 'js/patterns/vega'
+    'mockup-patterns-vega': 'js/patterns/vega',
+
+    'mockup-bundles-extra': 'js/bundles/extra'
   },
   shim: {
     'underscore': { exports: 'window._' },
     'backbone': { exports: 'window.Backbone' },
-    'sinon': { exports: 'window.sinon' },
     'vega': {
       exports: 'window.vg',
-      deps: [ 'd3' ]
+      deps: [ 'jquery', 'd3' ]
     }
   }
 };
