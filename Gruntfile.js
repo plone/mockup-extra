@@ -18,44 +18,52 @@ module.exports = function(grunt) {
       all: ['Gruntfile.js', 'js/**/*.js', 'tests/*.js']
     },
     karma: {
-      options: {
+      dev: {
+        configFile: 'tests/karma.conf.js'
+      },
+      dev_chrome: {
         configFile: 'tests/karma.conf.js',
-        runnerPort: 9999,
         browsers: ['Chrome']
       },
-      dev: {
-        autoWatch: true
-      },
       ci: {
+        configFile: 'tests/karma.conf.js',
         singleRun: true,
-        reporters: ['dots', 'junit', 'coverage'],
+        reporters: ['junit', 'coverage'],
         junitReporter: {
           outputFile: 'test-results.xml'
         },
         coverageReporter: {
-          type : 'cobertura',
+          type : 'lcovonly',
           dir : 'coverage/'
+        },
+        browsers: ['sauce_chrome'],
+        sauceLabs: {
+          testName: 'PloneExtraMockup',
+          startConnect: true
+        },
+        customLaunchers: {
+          'sauce_chrome': {
+             base: 'SauceLabs',
+             platform: 'Windows 8',
+             browserName: 'chrome'
+           },
+          'sauce_firefox': {
+             base: 'SauceLabs',
+             platform: 'Windows 8',
+             browserName: 'firefox'
+           },
+           'sauce_ie': {
+             base: 'SauceLabs',
+             platform: 'Windows 8',
+             browserName: 'internet explorer'
+           }
         }
-        // TODO: SauceLabs stuff comes here
       }
     },
 
-    // TODO: minimize javascript if needed
-    //uglify: {
-    //  toolbar: {
-    //    files: {
-    //      'build/toolbar_init.min.js': ['js/iframe_init.js']
-    //    }
-    //  },
-    //  docs: {
-    //    files: docs
-    //  }
-    //},
-
-    // TODO: create bundle for specific python packages that uses them
     requirejs: {
      options: requirejsOptions,
-     extra: {
+     all: {
        options: {
          name: 'node_modules/almond/almond.js',
          include: 'mockup-bundles-extra',
@@ -66,77 +74,19 @@ module.exports = function(grunt) {
      }
     },
 
-    // TODO: include less styles if needed
-    //less: {
-    //  widgets: {
-    //    options: {
-    //      paths: ['less']
-    //    },
-    //    files: {
-    //      'build/widgets.css': 'less/widgets.less'
-    //    }
-    //  },
-    //  toolbar: {
-    //    options: {
-    //      paths: ['less']
-    //    },
-    //    files: {
-    //      'build/toolbar.css': 'less/toolbar.less',
-    //      'build/toolbar_init.css': 'less/iframe_init.less'
-    //    }
-    //  },
-    //  docs: {
-    //    options: {
-    //      paths: ['less']
-    //    },
-    //    files: {
-    //      'docs/dev/docs.css': 'less/docs.less'
-    //    }
-    //  }
-    //},
-
-    // TODO: minimize css if needed
-    //cssmin: {
-    //  widgets: {
-    //    expand: true,
-    //    cwd: 'build/',
-    //    src: ['widgets.css'],
-    //    dest: 'build/',
-    //    ext: '.min.css',
-    //    report: 'min'
-    //  },
-    //  toolbar: {
-    //    expand: true,
-    //    cwd: 'build/',
-    //    src: ['toolbar.css', 'toolbar_init.css'],
-    //    dest: 'build/',
-    //    ext: '.min.css',
-    //    report: 'min'
-    //  },
-    //  docs: {
-    //    expand: true,
-    //    cwd: 'docs/dev/',
-    //    src: ['docs.css'],
-    //    dest: 'docs/dev/',
-    //    ext: '.min.css',
-    //    report: 'min'
-    //  }
-    //}
   });
 
-  //grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
-  //grunt.loadNpmTasks('grunt-contrib-cssmin');
-  //grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-karma');
 
-  grunt.registerTask('compile-extra', [
-      'requirejs:extra'
-      // 'less:extra',
-      // 'cssmin:extra'
-      ]);
+  grunt.registerTask('compile-all', [
+    'requirejs:all'
+    ]);
 
-  grunt.registerTask('default', ['jshint', 'karma:dev' ]);
+  grunt.registerTask('default', [
+    'jshint',
+    'karma:dev'
+    ]);
 
 };

@@ -25,6 +25,8 @@ var requirejsOptions = {
   shim: {
     'underscore': { exports: 'window._' },
     'backbone': { exports: 'window.Backbone' },
+    'leaflet-geosearch': {
+      deps: [ 'jquery' ] },
     'vega': {
       exports: 'window.vg',
       deps: [ 'jquery', 'd3' ]

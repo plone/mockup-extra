@@ -1,7 +1,8 @@
 *.py?
 /build/
 /coverage/
-/node_modules/
+/node_modules
+/nixenv
 /docs/
 /plone/mockup_extra.egg-info/
 /bower_components/

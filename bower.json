@@ -8,7 +8,7 @@
     "vega": "1.3.2",
     "topojson": "1.4.0",
     "d3": "3.2.8",
-    "plone-mockup": "1.3.0"
+    "plone-mockup": "d29011fdc79e5b0552b14a2f1da5aca6d0a346f0"
   },
   "devDependencies": {
     "chai": "1.7.2"
