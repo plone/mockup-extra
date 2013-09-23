@@ -74,11 +74,20 @@ module.exports = function(grunt) {
      }
     },
 
+    sed: {
+      'bootstrap': {
+        path: 'node_modules/lcov-result-merger/index.js',
+        pattern: 'throw new Error\\(\'Unknown Prefix ',
+        replacement: '//throw// new Error(\'Unknown Prefix '
+      }
+    }
+
   });
 
   grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-karma');
+  grunt.loadNpmTasks('grunt-sed');
 
   grunt.registerTask('compile-all', [
     'requirejs:all'
